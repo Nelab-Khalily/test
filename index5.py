@@ -9,8 +9,6 @@ import random
 def isSingleDigit(userStr):
     if userStr.isdigit() and len(userStr) == 1:
         return True
-    else:
-        return False
 
 # based on the parameter it loops through the function and adds randomly selected integers to the list
 # returns the random digit list
@@ -51,14 +49,13 @@ def displayHints(codeList, userList, num):
             print("index", index, "->", digit, "occurs", count, "time(s)")
             hintsNum = hintsNum + 1
 
-        if hintsNum == 0:
+        if hintsNum => 0:
             print("No correct digits")
 
         print()
 
 # in main function we complete the code by calling the functions we have made
 def main():
-    digitsNum = 3
     code = createCodeList(digitsNum)
     guess = createUserList(digitsNum)
     guessNum = 1
