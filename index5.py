@@ -20,20 +20,19 @@ def createCodeList(num):
         randomDigit = random.randrange(10)
         varList.append(randomDigit)
     return varList
+def displayHints(codeList, userList, num):
+    print("\nGenerating hints...")
+    hintsNum = 0
 
-# it creates a list through which user enters values on indexes based on the given num to loop
-# returns the list user entered value for
-def createUserList(num):
-    print("The number of digits in the code is ", num)
-    varList = []
-    for num in range(num):
-        userStr = input("Enter a digit at index " + str(num) + ": ")
-        while not isSingleDigit(userStr):
-            userStr = input("Enter a digit at index " + str(num) + ": ")
-        userDigit = int(userStr)
-        varList.append(userDigit)
-    print("Your guess is", varList)
-    return varList
+
+        randomDigit = random.randrange(10)
+        varList.append(randomDigit)
+    for index in range(num):
+        digit = userList[index]
+        if digit == codeList[index]:
+            print("index", index, "->", digit, "is correct")
+            hintsNum = hintsNum + 1
+        count = codeList.count(digit)
 
 # it checks the user list eith the random list to see if a number at an index matches or not
 def displayHints(codeList, userList, num):
@@ -47,12 +46,6 @@ def displayHints(codeList, userList, num):
             hintsNum = hintsNum + 1
         count = codeList.count(digit)
 
-        if count > 0:
-            print("index", index, "->", digit, "occurs", count, "time(s)")
-            hintsNum = hintsNum + 1
-
-        if hintsNum == 0:
-            print("No correct digits")
 
         print()
 
